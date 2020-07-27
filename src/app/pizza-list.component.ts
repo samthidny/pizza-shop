@@ -8,11 +8,16 @@ import { Pizza } from './pizza';
 })
 export class PizzaListComponent implements OnInit {
 
+  @Input() pizzas: [Pizza];
+  
   constructor() { }
 
-  @Input() pizzas: [Pizza];
 
   ngOnInit(): void {
+  }
+
+  addItem(event) {
+    console.log('Pizza List addItem ' + event);
   }
 
 }

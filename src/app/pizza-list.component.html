@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let pizza of pizzas">
-    <app-pizza-item [pizza]=pizza>
+    <app-pizza-item [pizza]=pizza (onAddItem)="addItem($event)">
     </app-pizza-item>
   </li>
 </ul>
