@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuService } from './menu.service';
+import { Pizza } from './pizza';
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  pizzas: [Pizza];
+
+  constructor(menuService: MenuService) {
+    this.pizzas = menuService.pizzas;
+  }
 
   ngOnInit(): void {
   }
