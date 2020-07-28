@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Pizza } from './pizza';
 
 @Component({
@@ -10,14 +10,17 @@ export class PizzaListComponent implements OnInit {
 
   @Input() pizzas: [Pizza];
   
+  @Output() onAddItem = new EventEmitter<Pizza>();
+
   constructor() { }
 
 
   ngOnInit(): void {
   }
 
-  addItem(event) {
+  addItem(pizza: Pizza) {
     console.log('Pizza List addItem ' + event);
+    this.onAddItem.emit(pizza);
   }
 
 }
