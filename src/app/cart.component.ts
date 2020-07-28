@@ -16,7 +16,6 @@ export class CartComponent implements OnInit {
     this.cartService = cartService;
     console.log('Cart constructor');
     this.items = [];
-    
   }
 
   ngOnInit(): void {
@@ -27,6 +26,10 @@ export class CartComponent implements OnInit {
         this.items = this.cartService.items;
       }
     });
+  }
+
+  removeItem(item: Pizza): void {
+    this.cartService.removeItem(item);
   }
 
 }

@@ -15,6 +15,12 @@ export class CartService {
     this.items = [];
     this.numItems = 0;
     this.cartUpdated$ = new BehaviorSubject<number>(0);
+    this.addItem(Pizza.create('Test Pizza'));
+    this.addItem(Pizza.create('Test Pizza'));
+    this.addItem(Pizza.create('Test Pizza'));
+    this.addItem(Pizza.create('Test Pizza'));
+    this.addItem(Pizza.create('Test Pizza'));
+    
   }
 
   addItem(pizza: Pizza): void {
@@ -23,4 +29,15 @@ export class CartService {
     console.log('Pizza added to cart service');
     this.cartUpdated$.next();
   }
+
+  removeItem(pizza: Pizza): void {
+    console.log('remove ' + pizza);
+    const index = this.items.indexOf(pizza);
+    this.items.splice(index, 1);
+    this.numItems--;
+    console.log('Pizza removed from cart service');
+    this.cartUpdated$.next();
+  }
+
+
 }
