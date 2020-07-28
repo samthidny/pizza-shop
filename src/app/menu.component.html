@@ -1,9 +1,3 @@
 <h1>Pizzas</h1>
 <app-pizza-list [pizzas]=pizzas (onAddItem)="addItem($event)"></app-pizza-list>
-
-{{cartService.numItems}}
-{{cartService.items}}
-
-<ul *ngFor="let pizza of items">
-  <li>{{pizza.name}}</li>
-</ul>
+<app-cart></app-cart>

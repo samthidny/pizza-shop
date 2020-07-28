@@ -1,1 +1,5 @@
-<p>cart works!</p>
+<h1>Your Cart</h1>
+<p>items: {{items}}</p>
+<ul *ngFor="let pizza of items">
+  <li>{{pizza.name}}</li>
+</ul>
