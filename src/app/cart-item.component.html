@@ -1,3 +1,5 @@
-<div>{{pizza.name}}
+<div>{{pizza.name}} {{pizza.toppings.length}}
+  <span *ngFor="let topping of pizza.toppings">{{topping.name}}</span>
   <button (click)="removeItem($event)">Remove</button>
+  <button (click)="customiseItem($event)">Customise</button>
 </div>

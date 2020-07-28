@@ -19,7 +19,8 @@ export class CartService {
   }
 
   addItem(pizza: Pizza): void {
-    this.items.push(pizza);
+
+    this.items.push(pizza.clone());
     this.numItems++;
     console.log('Pizza added to cart service');
     this.cartUpdated$.next();

@@ -13,4 +13,9 @@ export class Pizza {
     return pizza;
   }
 
+  clone(): Pizza {
+    const pizza = Pizza.create(this.name, this.toppings.concat());
+    return pizza;
+  }
+
 }

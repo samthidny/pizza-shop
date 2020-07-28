@@ -24,4 +24,12 @@ export class CartItemComponent implements OnInit {
     this.itemRemoved.emit(this.pizza);
   }
 
+  customiseItem() {
+    console.log('customiseItem');
+    //this.pizza = Pizza.create(this.pizza.name, )
+    //this.pizza.name = this.pizza.name + 'X';
+    this.pizza.toppings.pop();
+  }
+
+
 }
