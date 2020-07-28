@@ -1,4 +1,9 @@
 <h3>{{pizza.name}}</h3>
 <p>Description of pizza</p>
+<ul *ngFor="let topping of pizza.toppings">
+  <li>
+    {{topping.name}}
+  </li>
+</ul>
 <img src="assets/images/pizza.png">
 <button (click)="addItem()">Add</button>
