@@ -15,12 +15,7 @@ export class CartService {
     this.items = [];
     this.numItems = 0;
     this.cartUpdated$ = new BehaviorSubject<number>(0);
-    this.addItem(Pizza.create('Test Pizza'));
-    this.addItem(Pizza.create('Test Pizza'));
-    this.addItem(Pizza.create('Test Pizza'));
-    this.addItem(Pizza.create('Test Pizza'));
-    this.addItem(Pizza.create('Test Pizza'));
-    
+    //this.addItem(Pizza.create('Test Pizza'));
   }
 
   addItem(pizza: Pizza): void {
