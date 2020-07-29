@@ -11,6 +11,7 @@ import { PizzaListComponent } from './pizza-list.component';
 import { PizzaItemComponent } from './pizza-item.component';
 import { CartComponent } from './cart.component';
 import { CartItemComponent } from './cart-item.component';
+import { CustomiseComponent } from './customise.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CartItemComponent } from './cart-item.component';
     PizzaListComponent,
     PizzaItemComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
+    CustomiseComponent
   ],
   imports: [
     BrowserModule,

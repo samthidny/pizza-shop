@@ -9,12 +9,12 @@ export class CartService {
 
   public items: Pizza[];
   public numItems: number;
-  public cartUpdated$: BehaviorSubject<number>;
+  public cartUpdated$: BehaviorSubject<Pizza[]>;
 
   constructor() {
     this.items = [];
     this.numItems = 0;
-    this.cartUpdated$ = new BehaviorSubject<number>(0);
+    this.cartUpdated$ = new BehaviorSubject<Pizza[]>(this.items);
     //this.addItem(Pizza.create('Test Pizza'));
   }
 
@@ -23,7 +23,7 @@ export class CartService {
     this.items.push(pizza.clone());
     this.numItems++;
     console.log('Pizza added to cart service');
-    this.cartUpdated$.next();
+    this.cartUpdated$.next(this.items);
   }
 
   removeItem(pizza: Pizza): void {
@@ -32,7 +32,7 @@ export class CartService {
     this.items.splice(index, 1);
     this.numItems--;
     console.log('Pizza removed from cart service');
-    this.cartUpdated$.next();
+    this.cartUpdated$.next(this.items);
   }
 
 

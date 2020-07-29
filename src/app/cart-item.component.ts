@@ -9,6 +9,7 @@ import { Pizza } from './pizza';
 export class CartItemComponent implements OnInit {
 
   @Input() pizza: Pizza;
+  @Input() index: number;
 
   @Output() itemRemoved: EventEmitter<Pizza>;
 

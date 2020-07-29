@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { DealsComponent } from './deals.component';
 import { MenuComponent } from './menu.component';
 import { CartComponent } from './cart.component';
+import { CustomiseComponent } from './customise.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,7 @@ const routes: Routes = [
   { path: 'deals', component: DealsComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'cart', component: CartComponent },
-  
+  { path: 'cart/:id', component: CustomiseComponent }
 ];
 
 @NgModule({

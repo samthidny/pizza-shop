@@ -8,7 +8,7 @@ import { ToppingsService } from './toppings.service';
 })
 export class MenuService {
 
-  pizzas: [Pizza];
+  pizzas: Pizza[];
 
   constructor(public toppingService: ToppingsService) {
 

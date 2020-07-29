@@ -10,9 +10,9 @@ import { CartService } from './cart.service';
 })
 export class MenuComponent implements OnInit {
 
-  pizzas: [Pizza];
+  pizzas: Pizza[];
   cartService: CartService;
-  items: [Pizza];
+  items: Pizza[];
 
   constructor(menuService: MenuService, cartService: CartService) {
     this.pizzas = menuService.pizzas;
