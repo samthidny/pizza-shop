@@ -1,6 +1,8 @@
-<div>{{pizza.name}} {{pizza.toppings.length}}
-  <span *ngFor="let topping of pizza.toppings;">{{topping.name}}</span>
-  <button (click)="removeItem()">Remove</button>
-  <button [routerLink]="['/cart', index]">Customise {{index}}</button>
-  <!-- (click)="customiseItem()" -->
+<div class="cart-item">
+  <h3>{{pizza.name}}</h3>
+  <app-topping-list [toppings]=pizza.toppings></app-topping-list>
+  <div class="controls">
+    <button (click)="removeItem()">Remove</button>
+    <button [routerLink]="['/cart', index]">Customise</button>
+  </div>
 </div>

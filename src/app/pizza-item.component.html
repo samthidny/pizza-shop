@@ -1,9 +1,12 @@
-<h3>{{pizza.name}}</h3>
-<p>Description of pizza</p>
-<ul *ngFor="let topping of pizza.toppings">
-  <li>
-    {{topping.name}}
-  </li>
-</ul>
-<img src="assets/images/pizza.png">
-<button (click)="addItem()">Add</button>
+<div class="item-main">
+  <div class="item-description">
+    <h3>{{pizza.name}}</h3>
+    <app-topping-list [toppings]=pizza.toppings></app-topping-list>
+  </div>
+  <div class="item-image">
+    <img src="assets/images/pizza.png">
+  </div>
+</div>
+<div class="item-footer">
+  <button (click)="addItem()">Add</button>
+</div>

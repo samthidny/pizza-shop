@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.666em;
+}
+
+h3 {
+  font-size: 1.333em;
+}
+
+
+
+button {
+  border: none;
+  font-size: 1em;
+  background-color: rgb(230, 3, 3);
+  color: white;
+  height: 2em;
+  // min-width: 8em;
+  margin: 0.25em;
+
+  &:hover {
+    background-color: rgb(190, 0, 0);
+  }
+}
+
+.bordered() {
+  @border-color: 200;
+  @border-blur: 3px;
+  -webkit-box-shadow: 0px 0px @border-blur 0px rgb(@border-color, @border-color, @border-color);
+  -moz-box-shadow: 0px 0px @border-blur 0px rgba(@border-color,@border-color,@border-color);
+  box-shadow: 0px 0px @border-blur 0px rgba(@border-color,@border-color,@border-color)
+}

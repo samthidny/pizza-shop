@@ -14,14 +14,14 @@ export class MenuComponent implements OnInit {
   cartService: CartService;
   items: Pizza[];
 
-  constructor(menuService: MenuService, cartService: CartService) {
+  constructor(public menuService: MenuService, cartService: CartService) {
     this.pizzas = menuService.pizzas;
     this.cartService = cartService;
     this.cartService.cartUpdated$.subscribe({
       next: (value) => {
         this.items = this.cartService.items;
       }
-    })
+    });
   }
 
   ngOnInit(): void {

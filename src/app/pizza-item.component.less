@@ -1,13 +1,44 @@
+@import '../variables.less';
+@import '../styles.less';
+
+
 :host {
 
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 20em;
-  border: 1px solid grey;
-  padding: 1em;
+  padding: 0.5em;
+  margin: 1em;
+
+  .bordered;
+
+  h3 {
+    margin-top: 0;
+    font-weight: bold;
+  }
 
   img {
+    margin: 0.333em;
     width: 5em;
     height: 5em;
+  }
+
+  .item-main {
+    display: flex;
+    flex: 0 1 auto;
+  }
+
+  .item-description {
+    flex: 0 1 auto;
+  }
+
+  .item-image {
+    flex: 0 0 auto;
+  }
+
+  .item-footer {
+    flex: 0 0 auto;
+    text-align: right;
   }
 
 }

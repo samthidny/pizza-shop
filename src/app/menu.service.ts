@@ -21,9 +21,14 @@ export class MenuService {
     };
 
     this.pizzas = [];
-    this.pizzas.push(Pizza.create('Veggie Special', getToppings('onion, mushroom, tomato')));
-    this.pizzas.push(Pizza.create('Meat Special', getToppings('onion, mushroom, meatballs, ham, chicken')));
+    this.pizzas.push(Pizza.create('Veggie Delight', getToppings('onion, mushroom, tomato')));
+    this.pizzas.push(Pizza.create('Meat Feast', getToppings('onion, mushroom, meatballs, ham, chicken')));
     this.pizzas.push(Pizza.create('Spicy Nicey', getToppings('onion, mushroom, tomato, pepperoni, green chillis')));
+    this.pizzas.push(Pizza.create('Mexicano', getToppings('onion, mushroom, tomato')));
+    this.pizzas.push(Pizza.create('Chicken Run', getToppings('onion, mushroom, meatballs, ham, chicken')));
+    this.pizzas.push(Pizza.create('Spanish Special', getToppings('onion, mushroom, tomato, pepperoni, green chillis')));
+
+    
   }
 
 }

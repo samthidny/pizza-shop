@@ -12,6 +12,7 @@ import { PizzaItemComponent } from './pizza-item.component';
 import { CartComponent } from './cart.component';
 import { CartItemComponent } from './cart-item.component';
 import { CustomiseComponent } from './customise.component';
+import { ToppingListComponent } from './topping-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CustomiseComponent } from './customise.component';
     PizzaItemComponent,
     CartComponent,
     CartItemComponent,
-    CustomiseComponent
+    CustomiseComponent,
+    ToppingListComponent
   ],
   imports: [
     BrowserModule,

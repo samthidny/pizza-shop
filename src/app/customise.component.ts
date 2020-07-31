@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pizza } from './pizza';
 import { CartService } from './cart.service';
-import { MenuService } from './menu.service';
 import { ToppingsService } from './toppings.service';
 import { Topping } from './topping';
 
