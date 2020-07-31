@@ -8,11 +8,12 @@ import { CustomiseComponent } from './customise.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'deals', component: DealsComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'cart/:id', component: CustomiseComponent }
+  { path: 'cart/:id', component: CustomiseComponent },
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
