@@ -2,10 +2,9 @@
 
 <ul>
   <li *ngFor="let topping of pizza.toppings;">{{topping.name}}</li>
-  
 </ul>
 
 <div *ngFor="let topping of toppings; index as i">
-  <input type="checkbox" [id]="'radio' + i" [attr.checked]="pizza.toppings.indexOf(topping) !== -1 ? 'checked' : null">
+  <input type="checkbox" [id]="'radio' + i" [attr.checked]="pizza.toppings.indexOf(topping) !== -1 ? 'checked' : null" (change)="toppingChanged($event)" name="{{topping.name}}">
   <label [for]="'radio' + i">{{topping.name}}</label>
 </div>

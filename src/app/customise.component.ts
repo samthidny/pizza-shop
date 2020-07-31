@@ -24,7 +24,17 @@ export class CustomiseComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.pizza = this.cartService.items[this.id];
-    console.log('ID ' + this.id);
+  }
+
+  toppingChanged(event: Event): void {
+    const topping = this.toppings.find((topping: Topping) => {
+      return topping.name === event.target.name;
+    });
+    if (event.target.checked) {
+      this.pizza.addTopping(topping);
+    } else {
+      this.pizza.removeTopping(topping);
+    }
   }
 
 }

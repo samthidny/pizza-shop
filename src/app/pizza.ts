@@ -1,4 +1,5 @@
 import { Topping } from "./topping";
+import { ToppingsService } from "./toppings.service";
 
 export class Pizza {
 
@@ -16,6 +17,15 @@ export class Pizza {
   clone(): Pizza {
     const pizza = Pizza.create(this.name, this.toppings.concat());
     return pizza;
+  }
+
+  addTopping(topping: Topping): void {
+    this.toppings.push(topping);
+  }
+
+  removeTopping(topping: Topping): void {
+    const index = this.toppings.indexOf(topping);
+    this.toppings.splice(index, 1);
   }
 
 }
