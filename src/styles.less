@@ -11,8 +11,6 @@ h3 {
   font-size: 1.333em;
 }
 
-
-
 button {
   border: none;
   font-size: 1em;
@@ -28,9 +26,20 @@ button {
 }
 
 .bordered() {
+  padding: 0.5em;
+  margin: 1em;
   @border-color: 200;
   @border-blur: 3px;
   -webkit-box-shadow: 0px 0px @border-blur 0px rgb(@border-color, @border-color, @border-color);
   -moz-box-shadow: 0px 0px @border-blur 0px rgba(@border-color,@border-color,@border-color);
-  box-shadow: 0px 0px @border-blur 0px rgba(@border-color,@border-color,@border-color)
+  box-shadow: 0px 0px @border-blur 0px rgba(@border-color,@border-color,@border-color);
+}
+
+.card() {
+  .bordered;
+
+  h3 {
+    margin-top: 0;
+    font-weight: bold;
+  }
 }
