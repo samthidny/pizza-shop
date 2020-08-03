@@ -17,7 +17,7 @@ export class CartService {
   constructor(public menuService: MenuService) {
     this.items = [];
     this.numItems = 0;
-    // this.totalPrice = 0;
+    this.totalPrice = 0;
     this.cartUpdated$ = new BehaviorSubject<Pizza[]>(this.items);
   }
 
@@ -28,8 +28,7 @@ export class CartService {
 
     this.items.push(pizza.clone());
     this.numItems++;
-    console.log('Pizza added to cart service');
-    this.calculatePrice();
+    this.totalPrice = this.calculatePrice();
     this.cartUpdated$.next(this.items);
   }
 
@@ -38,8 +37,7 @@ export class CartService {
     const index = this.items.indexOf(pizza);
     this.items.splice(index, 1);
     this.numItems--;
-    console.log('Pizza removed from cart service');
-    this.calculatePrice();
+    this.totalPrice = this.calculatePrice();
     this.cartUpdated$.next(this.items);
   }
 
