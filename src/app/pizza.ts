@@ -6,8 +6,12 @@ export class Pizza {
   toppingsChanged: EventEmitter<Pizza> = new EventEmitter();
   name: string;
   toppings: Topping[];
+  size: number;
+  price: number;
 
   constructor() {
+    this.size = 2;
+    this.price = 1;
   }
 
   public static create(name: string, toppings: Topping[]): Pizza {

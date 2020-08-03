@@ -33,4 +33,8 @@ export class MenuService {
     return .75;
   }
 
+  getBasePrice(pizza: Pizza): number {
+    return 10;
+  }
+
 }

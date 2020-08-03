@@ -1,5 +1,5 @@
 <div class="cart-item">
-  <h3>{{pizza.name}}</h3>
+  <h3>{{pizza.name}} - {{pizza.price | currency:'GBP':'symbol' }}</h3>
   <app-topping-list [toppings]=pizza.toppings></app-topping-list>
   <div class="controls">
     <button (click)="removeItem()">Remove</button>

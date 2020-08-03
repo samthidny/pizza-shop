@@ -26,14 +26,15 @@ export class CartService {
     const pizzaInst: Pizza = pizza.clone();
 
     this.items.push(pizzaInst);
+    pizzaInst.price = this.getPrice(pizzaInst);
 
     pizzaInst.toppingsChanged.subscribe((pizza: Pizza) => {
-      this.totalPrice = this.calculatePrice();
+      this.totalPrice = this.getTotalPrice();
       this.cartUpdated$.next(this.items);
     });
 
     this.numItems++;
-    this.totalPrice = this.calculatePrice();
+    this.totalPrice = this.getTotalPrice();
     this.cartUpdated$.next(this.items);
   }
 
@@ -41,12 +42,13 @@ export class CartService {
     const index = this.items.indexOf(pizza);
     this.items.splice(index, 1);
     this.numItems--;
-    this.totalPrice = this.calculatePrice();
+    this.totalPrice = this.getTotalPrice();
     this.cartUpdated$.next(this.items);
   }
 
-  calculatePrice(): number {
+  getTotalPrice(): number {
     let totalPrice = 0;
+
     this.items.forEach((item: Pizza) => {
       totalPrice += this.getPrice(item);
     });
@@ -54,7 +56,8 @@ export class CartService {
   }
 
   getPrice(pizza: Pizza): number {
-    let total = 0;
+    let total = this.menuService.getBasePrice(pizza);
+
     pizza.toppings.forEach((topping: Topping) => {
       const toppingPrice: number = this.menuService.getToppingPrice(topping, pizza);
       total += toppingPrice;
