@@ -11,6 +11,7 @@ export class CartComponent implements OnInit {
 
   items: Pizza[];
   cartService: CartService;
+  totalPrice: number;
 
   constructor(cartService: CartService) {
     this.cartService = cartService;
@@ -24,6 +25,7 @@ export class CartComponent implements OnInit {
       next: () => {
         console.log('Cart page heard update!!!! ' + this.cartService.items.length);
         this.items = this.cartService.items;
+        this.totalPrice = this.cartService.calculatePrice();
       }
     });
   }

@@ -27,8 +27,11 @@ export class MenuService {
     this.pizzas.push(Pizza.create('Mexicano', getToppings('onion, mushroom, tomato')));
     this.pizzas.push(Pizza.create('Chicken Run', getToppings('onion, mushroom, meatballs, ham, chicken')));
     this.pizzas.push(Pizza.create('Spanish Special', getToppings('onion, mushroom, tomato, pepperoni, green chillis')));
+  }
 
-    
+  getToppingPrice(topping: Topping, pizza: Pizza): number {
+    // Check Pizza size and calculate topping price
+    return 100;
   }
 
 }

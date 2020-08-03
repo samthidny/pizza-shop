@@ -1,4 +1,4 @@
-<h1>Your Order</h1>
+<h1>Your Order - Total: {{totalPrice}}</h1>
 <ul *ngFor="let pizza of items; index as i">
   <li><app-cart-item [pizza]=pizza [index]=i (itemRemoved)="removeItem($event)"></app-cart-item></li>
 </ul>
