@@ -26,10 +26,11 @@ export class CustomiseComponent implements OnInit {
   }
 
   toppingChanged(event: Event): void {
-    const topping = this.toppings.find((topping: Topping) => {
-      return topping.name === event.target.name;
+    const input: HTMLInputElement = event.target as HTMLInputElement;
+    const topping = this.toppings.find((item: Topping) => {
+      return item.name === input.name;
     });
-    if (event.target.checked) {
+    if (input.checked) {
       this.pizza.addTopping(topping);
     } else {
       this.pizza.removeTopping(topping);
