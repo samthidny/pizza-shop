@@ -13,7 +13,6 @@ export class PizzaItemComponent implements OnInit {
   @Output() onAddItem = new EventEmitter<Pizza>();
 
   addItem() {
-    console.log('Add Item ' + this.pizza.name);
     this.onAddItem.emit(this.pizza);
   }
 

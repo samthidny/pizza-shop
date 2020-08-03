@@ -19,7 +19,6 @@ export class PizzaListComponent implements OnInit {
   }
 
   addItem(pizza: Pizza) {
-    console.log('Pizza List addItem ' + event);
     this.onAddItem.emit(pizza);
   }
 

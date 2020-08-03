@@ -15,7 +15,6 @@ export class MenuService {
     // These would normally load from an API, hardcoding for test
     const getToppings = (toppings) => {
       return toppings.split(',').map((topping) => {
-        console.log('get topping ' + topping.trim());
         return this.toppingService.getTopping(topping.trim());
       });
     };
@@ -31,7 +30,7 @@ export class MenuService {
 
   getToppingPrice(topping: Topping, pizza: Pizza): number {
     // Check Pizza size and calculate topping price
-    return 100;
+    return .75;
   }
 
 }

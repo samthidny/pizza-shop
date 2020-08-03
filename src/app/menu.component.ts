@@ -28,7 +28,6 @@ export class MenuComponent implements OnInit {
   }
 
   addItem(pizza: Pizza): void {
-    console.log('Menu adding Pizza to Cart');
     this.cartService.addItem(pizza);
   }
 

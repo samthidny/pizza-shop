@@ -3,6 +3,7 @@
     <li><a routerLink="home" routerLinkActive="nav-active">Home</a></li>
     <li><a routerLink="deals" routerLinkActive="nav-active">Deals</a></li>
     <li><a routerLink="menu" routerLinkActive="nav-active">Menu</a></li>
-    <li><a routerLink="cart" routerLinkActive="nav-active">Your order ({{numItems}}) ({{totalPrice}})</a></li>
+    <li><a routerLink="cart" routerLinkActive="nav-active">Your order ({{numItems}}) ({{ totalPrice | currency:'GBP':'symbol' }})</a></li>
+    
   </ul>
 </nav>

@@ -16,7 +16,7 @@ export class CustomiseComponent implements OnInit {
   pizza: Pizza;
   toppings: Topping[];
 
-  constructor(private activatedRoute: ActivatedRoute, private cartService: CartService, private toppingsService: ToppingsService) {
+  constructor(private activatedRoute: ActivatedRoute, public cartService: CartService, private toppingsService: ToppingsService) {
     this.toppings = toppingsService.toppings;
   }
 
