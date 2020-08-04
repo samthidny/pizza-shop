@@ -22,7 +22,7 @@ export class CartComponent implements OnInit {
     this.cartService.cartUpdated$.subscribe({
       next: () => {
         this.items = this.cartService.items;
-        this.totalPrice = this.cartService.calculatePrice();
+        this.totalPrice = this.cartService.getTotalPrice();
       }
     });
   }
