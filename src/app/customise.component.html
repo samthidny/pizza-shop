@@ -1,5 +1,5 @@
 <h1>Customise this pizza</h1>
-<h2>{{pizza.name}}</h2>
+<h2>{{pizza.name}} - {{pizza.size.name}} - {{pizza.price}}</h2>
 <div *ngFor="let topping of toppings; index as i">
   <input type="checkbox" [id]="'radio' + i" [attr.checked]="pizza.toppings.indexOf(topping) !== -1 ? 'checked' : null" (change)="toppingChanged($event)" name="{{topping.name}}">
   <label [for]="'radio' + i">{{topping.name}}</label>

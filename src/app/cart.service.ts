@@ -24,7 +24,6 @@ export class CartService {
   addItem(pizza: Pizza): void {
 
     const pizzaInst: Pizza = pizza.clone();
-
     this.items.push(pizzaInst);
     //pizzaInst.price = this.menuService.getPrice(pizzaInst);
     pizzaInst.toppingsChanged.subscribe(this.itemUpdated.bind(this));
@@ -46,7 +45,7 @@ export class CartService {
 
     this.items.forEach((item: Pizza) => {
       // update each pizza price
-      //item.price = this.menuService.getPrice(item);
+      item.price = this.menuService.getPrice(item);
       totalPrice += item.price;
     });
     return totalPrice;
