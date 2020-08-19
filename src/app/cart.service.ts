@@ -26,7 +26,7 @@ export class CartService {
     const pizzaInst: Pizza = pizza.clone();
 
     this.items.push(pizzaInst);
-    pizzaInst.price = this.getPrice(pizzaInst);
+    //pizzaInst.price = this.menuService.getPrice(pizzaInst);
     pizzaInst.toppingsChanged.subscribe(this.itemUpdated.bind(this));
     this.numItems++;
     this.totalPrice = this.getTotalPrice();
@@ -46,24 +46,24 @@ export class CartService {
 
     this.items.forEach((item: Pizza) => {
       // update each pizza price
-      item.price = this.getPrice(item);
+      //item.price = this.menuService.getPrice(item);
       totalPrice += item.price;
     });
     return totalPrice;
   }
 
-  getPrice(pizza: Pizza): number {
-    let total = this.menuService.getBasePrice(pizza);
+  // getPrice(pizza: Pizza): number {
+  //   let total = this.menuService.getBasePrice(pizza);
 
-    console.log('Calculate individual price ' + pizza.size.name);
+  //   console.log('Calculate individual price ' + pizza.size.name);
 
 
-    pizza.toppings.forEach((topping: Topping) => {
-      const toppingPrice: number = this.menuService.getToppingPrice(topping, pizza);
-      total += toppingPrice;
-    });
-    return total;
-  }
+  //   pizza.toppings.forEach((topping: Topping) => {
+  //     const toppingPrice: number = this.menuService.getToppingPrice(pizza, topping);
+  //     total += toppingPrice;
+  //   });
+  //   return total;
+  // }
 
   itemUpdated(pizza: Pizza): void {
     console.log('Cart needs updating!!!!');

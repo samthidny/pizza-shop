@@ -3,6 +3,7 @@ import { Pizza } from './pizza';
 import { Topping } from './topping';
 import { ToppingsService } from './toppings.service';
 import { PizzaSize } from './pizza-size';
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root'
@@ -36,11 +37,17 @@ export class MenuService {
     this.pizzas.push(Pizza.create('Mexicano', getToppings('onion, mushroom, tomato'), this.defaultSize));
     this.pizzas.push(Pizza.create('Chicken Run', getToppings('onion, mushroom, meatballs, ham, chicken'), this.defaultSize));
     this.pizzas.push(Pizza.create('Spanish Special', getToppings('onion, mushroom, tomato, pepperoni, green chillis'), this.defaultSize));
+
+    // Calculate initial pizza price on the menu
+    this.pizzas.forEach((pizza: Pizza) => {
+      console.log('Calculate initial price for ' + pizza.name);
+      pizza.price = this.getPrice(pizza);
+    });
   }
 
-  getToppingPrice(topping: Topping, pizza: Pizza): number {
+  getToppingPrice(pizza: Pizza, topping: Topping): number {
     // Check Pizza size and calculate topping price
-    return .75;
+    return 1;
   }
 
   getBasePrice(pizza: Pizza): number {
@@ -51,6 +58,16 @@ export class MenuService {
     }
 
     throw new Error('Pizza size not found');
+  }
+
+  getPrice(pizza: Pizza): number {
+    let total = this.getBasePrice(pizza);
+
+    pizza.toppings.forEach((topping: Topping) => {
+      const toppingPrice: number = this.getToppingPrice(pizza, topping);
+      total += toppingPrice;
+    });
+    return total;
   }
 
 }
