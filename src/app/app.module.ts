@@ -13,10 +13,12 @@ import { CartComponent } from './cart.component';
 import { CartItemComponent } from './cart-item.component';
 import { CustomiseComponent } from './customise.component';
 import { ToppingListComponent } from './topping-list.component';
+import { SizeComponent } from './size.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SizeComponent,
     HomeComponent,
     DealsComponent,
     MenuComponent,

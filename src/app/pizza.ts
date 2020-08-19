@@ -1,28 +1,42 @@
 import { Topping } from "./topping";
 import { EventEmitter } from "@angular/core";
+import { PizzaSize } from "./pizza-size";
 
 export class Pizza {
 
+  id: number;
   toppingsChanged: EventEmitter<Pizza> = new EventEmitter();
   name: string;
   toppings: Topping[];
-  size: number;
+  private _size: PizzaSize;
   price: number;
 
-  constructor() {
-    this.size = 2;
-    this.price = 1;
+  get size(): PizzaSize {
+    return this._size;
   }
 
-  public static create(name: string, toppings: Topping[]): Pizza {
+  set size(size: PizzaSize) {
+    this._size = size;
+    console.log('Pizza size has been SET ' + size);
+    this.update();
+  }
+
+  constructor() {
+    this.size = null;
+    this.price = 0;
+  }
+
+  public static create(name: string, toppings: Topping[], size: PizzaSize): Pizza {
     const pizza = new Pizza();
     pizza.name = name;
     pizza.toppings = toppings;
+    pizza.size = size;
     return pizza;
   }
 
   clone(): Pizza {
-    const pizza = Pizza.create(this.name, this.toppings.concat());
+    const pizza = Pizza.create(this.name, this.toppings.concat(), this.size);
+    pizza.id = Math.round(Math.random() * 99999999);
     return pizza;
   }
 
@@ -34,7 +48,7 @@ export class Pizza {
   removeTopping(topping: Topping): void {
     const index = this.toppings.indexOf(topping);
     this.toppings.splice(index, 1);
-    this.update()
+    this.update();
   }
 
   update(): void {

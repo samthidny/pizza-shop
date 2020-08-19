@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Pizza } from './pizza';
 import { Topping } from './topping';
 import { ToppingsService } from './toppings.service';
+import { PizzaSize } from './pizza-size';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,17 @@ import { ToppingsService } from './toppings.service';
 export class MenuService {
 
   pizzas: Pizza[];
+  sizes: PizzaSize[];
+  defaultSize: PizzaSize;
 
   constructor(public toppingService: ToppingsService) {
+
+    this.sizes = [];
+    this.sizes.push(PizzaSize.create(0, 'small'));
+    this.sizes.push(PizzaSize.create(1, 'medium'));
+    this.sizes.push(PizzaSize.create(2, 'large'));
+
+    this.defaultSize = this.sizes[1];
 
     // These would normally load from an API, hardcoding for test
     const getToppings = (toppings) => {
@@ -20,12 +30,12 @@ export class MenuService {
     };
 
     this.pizzas = [];
-    this.pizzas.push(Pizza.create('Veggie Delight', getToppings('onion, mushroom, tomato')));
-    this.pizzas.push(Pizza.create('Meat Feast', getToppings('onion, mushroom, meatballs, ham, chicken')));
-    this.pizzas.push(Pizza.create('Spicy Nicey', getToppings('onion, mushroom, tomato, pepperoni, green chillis')));
-    this.pizzas.push(Pizza.create('Mexicano', getToppings('onion, mushroom, tomato')));
-    this.pizzas.push(Pizza.create('Chicken Run', getToppings('onion, mushroom, meatballs, ham, chicken')));
-    this.pizzas.push(Pizza.create('Spanish Special', getToppings('onion, mushroom, tomato, pepperoni, green chillis')));
+    this.pizzas.push(Pizza.create('Veggie Delight', getToppings('onion, mushroom, tomato'), this.defaultSize));
+    this.pizzas.push(Pizza.create('Meat Feast', getToppings('onion, mushroom, meatballs, ham, chicken'), this.defaultSize));
+    this.pizzas.push(Pizza.create('Spicy Nicey', getToppings('onion, mushroom, tomato, pepperoni, green chillis'), this.defaultSize));
+    this.pizzas.push(Pizza.create('Mexicano', getToppings('onion, mushroom, tomato'), this.defaultSize));
+    this.pizzas.push(Pizza.create('Chicken Run', getToppings('onion, mushroom, meatballs, ham, chicken'), this.defaultSize));
+    this.pizzas.push(Pizza.create('Spanish Special', getToppings('onion, mushroom, tomato, pepperoni, green chillis'), this.defaultSize));
   }
 
   getToppingPrice(topping: Topping, pizza: Pizza): number {
@@ -34,7 +44,13 @@ export class MenuService {
   }
 
   getBasePrice(pizza: Pizza): number {
-    return 10;
+    switch (pizza.size.name) {
+      case 'small' : return 5;
+      case 'medium' : return 7.50;
+      case 'large' : return 10;
+    }
+
+    throw new Error('Pizza size not found');
   }
 
 }

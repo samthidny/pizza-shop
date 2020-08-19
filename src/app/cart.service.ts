@@ -27,12 +27,7 @@ export class CartService {
 
     this.items.push(pizzaInst);
     pizzaInst.price = this.getPrice(pizzaInst);
-
-    pizzaInst.toppingsChanged.subscribe((pizza: Pizza) => {
-      this.totalPrice = this.getTotalPrice();
-      this.cartUpdated$.next(this.items);
-    });
-
+    pizzaInst.toppingsChanged.subscribe(this.itemUpdated.bind(this));
     this.numItems++;
     this.totalPrice = this.getTotalPrice();
     this.cartUpdated$.next(this.items);
@@ -50,7 +45,9 @@ export class CartService {
     let totalPrice = 0;
 
     this.items.forEach((item: Pizza) => {
-      totalPrice += this.getPrice(item);
+      // update each pizza price
+      item.price = this.getPrice(item);
+      totalPrice += item.price;
     });
     return totalPrice;
   }
@@ -58,11 +55,21 @@ export class CartService {
   getPrice(pizza: Pizza): number {
     let total = this.menuService.getBasePrice(pizza);
 
+    console.log('Calculate individual price ' + pizza.size.name);
+
+
     pizza.toppings.forEach((topping: Topping) => {
       const toppingPrice: number = this.menuService.getToppingPrice(topping, pizza);
       total += toppingPrice;
     });
     return total;
+  }
+
+  itemUpdated(pizza: Pizza): void {
+    console.log('Cart needs updating!!!!');
+    this.totalPrice = this.getTotalPrice();
+    console.log('New calculated price ' + this.totalPrice);
+    this.cartUpdated$.next(this.items);
   }
 
 }
