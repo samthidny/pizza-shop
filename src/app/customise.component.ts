@@ -4,6 +4,7 @@ import { Pizza } from './pizza';
 import { CartService } from './cart.service';
 import { ToppingsService } from './toppings.service';
 import { Topping } from './topping';
+import { PizzaSize } from './pizza-size';
 
 @Component({
   selector: 'app-customise',
@@ -35,6 +36,10 @@ export class CustomiseComponent implements OnInit {
     } else {
       this.pizza.removeTopping(topping);
     }
+  }
+
+  sizeChanged(size: PizzaSize): void {
+    this.pizza.size = size;
   }
 
 }

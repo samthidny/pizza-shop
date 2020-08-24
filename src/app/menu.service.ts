@@ -48,7 +48,7 @@ export class MenuService {
 
   getToppingPrice(pizza: Pizza, topping: Topping): number {
     // Check Pizza size and calculate topping price
-    return 1;
+    return pizza.size.id + 0.5;
   }
 
   getBasePrice(pizza: Pizza): number {
