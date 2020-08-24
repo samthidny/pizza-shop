@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Pizza } from './pizza';
+import { PizzaSize } from './pizza-size';
 
 @Component({
   selector: 'app-pizza-item',
@@ -21,4 +22,8 @@ export class PizzaItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  sizeChanged(size: PizzaSize): void {
+    console.log('Pizza heard size changed');
+    this.pizza.size = size;
+  }
 }

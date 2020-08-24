@@ -4,6 +4,7 @@ import { Topping } from './topping';
 import { ToppingsService } from './toppings.service';
 import { PizzaSize } from './pizza-size';
 import { CartService } from './cart.service';
+import { PizzaSizeComponent } from './pizza-size.component';
 
 @Injectable({
   providedIn: 'root'
@@ -68,6 +69,10 @@ export class MenuService {
       total += toppingPrice;
     });
     return total;
+  }
+
+  getAvailableSizes(pizza: Pizza): PizzaSize[] {
+    return this.sizes;
   }
 
 }

@@ -1,0 +1,3 @@
+<select (change)="onSizeChange($event.target.value)">
+  <option *ngFor="let size of sizes; index as i" [value]="size.id" [selected]="size.id === selectedSize.id">{{size.name}} - {{size.id}}</option>
+</select>

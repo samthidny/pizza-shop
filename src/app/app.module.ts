@@ -14,6 +14,7 @@ import { CartItemComponent } from './cart-item.component';
 import { CustomiseComponent } from './customise.component';
 import { ToppingListComponent } from './topping-list.component';
 import { SizeComponent } from './size.component';
+import { PizzaSizeComponent } from './pizza-size.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SizeComponent } from './size.component';
     CartComponent,
     CartItemComponent,
     CustomiseComponent,
-    ToppingListComponent
+    ToppingListComponent,
+    PizzaSizeComponent
   ],
   imports: [
     BrowserModule,
