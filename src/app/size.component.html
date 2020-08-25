@@ -1,7 +1,0 @@
-<ul>
-  <li *ngFor="let size of sizes">
-    <span>{{pizza.id}}-{{size.id}}</span>
-    <input type="radio" [value]="size" name="{{pizza.id}}-{{size.id}}" id="{{pizza.id}}-{{size.id}}" [checked]="size === pizza.size" (change)="changeSize($event, size)">
-    <label for="{{pizza.id}}-{{size.id}}">{{size.name}}</label>
-  </li>
-</ul>

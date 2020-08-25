@@ -1,3 +1,0 @@
-<select (change)="onSizeChange($event.target.value)">
-  <option *ngFor="let size of sizes; index as i" [value]="size.id" [selected]="size.id === pizza.size.id">{{size.name}} - {{prices[i] | currency:'GBP':'symbol'}}</option>
-</select>
