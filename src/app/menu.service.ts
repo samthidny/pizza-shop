@@ -5,6 +5,7 @@ import { ToppingsService } from './toppings.service';
 import { PizzaSize } from './pizza-size';
 import { CartService } from './cart.service';
 import { PizzaSizeComponent } from './pizza-size.component';
+import { PizzaOption } from './pizza-option';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,15 @@ export class MenuService {
 
   pizzas: Pizza[];
   sizes: PizzaSize[];
+  options: PizzaOption[];
   defaultSize: PizzaSize;
 
   constructor(public toppingService: ToppingsService) {
+
+    this.options = [];
+    this.options.push(PizzaOption.create('size', 0, 'small'));
+    this.options.push(PizzaOption.create('size', 1, 'medium'));
+    this.options.push(PizzaOption.create('size', 2, 'large'));
 
     this.sizes = [];
     this.sizes.push(PizzaSize.create(0, 'small'));
@@ -52,9 +59,9 @@ export class MenuService {
 
   getBasePrice(pizza: Pizza): number {
     switch (pizza.size.name) {
-      case 'small' : return 5;
-      case 'medium' : return 6;
-      case 'large' : return 7;
+      case 'small': return 5;
+      case 'medium': return 6;
+      case 'large': return 7;
     }
 
     throw new Error('Pizza size not found');
@@ -72,6 +79,12 @@ export class MenuService {
 
   getAvailableSizes(pizza: Pizza): PizzaSize[] {
     return this.sizes;
+  }
+
+  getAvailableOptions(optionName: string, pizza: Pizza): PizzaOption[] {
+    return this.options.filter((option: PizzaOption) => {
+      return option.option === optionName;
+    });
   }
 
 }

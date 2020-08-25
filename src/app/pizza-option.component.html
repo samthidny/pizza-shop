@@ -1,0 +1,3 @@
+<select (change)="onOptionChange($event.target.value)">
+  <option *ngFor="let option of options; index as i" [value]="option.id" [selected]="option.id === pizza[option.option].id">{{option.name}} - {{prices[i] | currency:'GBP':'symbol'}}</option>
+</select>
