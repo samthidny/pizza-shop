@@ -17,7 +17,6 @@ export class PizzaSizeComponent implements OnInit {
   selectedSize: PizzaSize;
 
   @Input() set pizza(pizza: Pizza) {
-    console.log('Pizza set!!!!');
     this._pizza = pizza;
     this._pizza.toppingsChanged.subscribe(() => {
       this.updateSizePrices();
@@ -48,7 +47,6 @@ export class PizzaSizeComponent implements OnInit {
     this.selectedSize = this.sizes.find((item: PizzaSize) => {
       return item.id === parseInt(pizzaSizeID, 10);
     });
-    console.log('sizeChanged!!!! ' + this.selectedSize.name);
     this.sizeChange.emit(this.selectedSize);
   }
 

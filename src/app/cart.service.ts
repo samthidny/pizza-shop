@@ -51,23 +51,8 @@ export class CartService {
     return totalPrice;
   }
 
-  // getPrice(pizza: Pizza): number {
-  //   let total = this.menuService.getBasePrice(pizza);
-
-  //   console.log('Calculate individual price ' + pizza.size.name);
-
-
-  //   pizza.toppings.forEach((topping: Topping) => {
-  //     const toppingPrice: number = this.menuService.getToppingPrice(pizza, topping);
-  //     total += toppingPrice;
-  //   });
-  //   return total;
-  // }
-
   itemUpdated(pizza: Pizza): void {
-    console.log('Cart needs updating!!!!');
     this.totalPrice = this.getTotalPrice();
-    console.log('New calculated price ' + this.totalPrice);
     this.cartUpdated$.next(this.items);
   }
 

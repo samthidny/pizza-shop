@@ -19,7 +19,6 @@ export class MenuComponent implements OnInit {
     this.pizzas = menuService.pizzas;
     this.pizzas.forEach((pizza: Pizza) => {
       pizza.toppingsChanged.subscribe((pizza: Pizza) => {
-        console.log('Menu component heard pizza change');
         // Recalculate the price if the menu item has been customised
         pizza.price = menuService.getPrice(pizza);
       });

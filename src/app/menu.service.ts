@@ -41,7 +41,6 @@ export class MenuService {
 
     // Calculate initial pizza price on the menu
     this.pizzas.forEach((pizza: Pizza) => {
-      console.log('Calculate initial price for ' + pizza.name);
       pizza.price = this.getPrice(pizza);
     });
   }

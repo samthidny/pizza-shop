@@ -17,7 +17,6 @@ export class Pizza {
 
   set size(size: PizzaSize) {
     this._size = size;
-    console.log('Pizza size has been SET ' + size);
     this.update();
   }
 

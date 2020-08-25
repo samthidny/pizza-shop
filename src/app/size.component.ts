@@ -24,7 +24,6 @@ export class SizeComponent implements OnInit {
   }
 
   changeSize(event: Event, size: PizzaSize): void {
-    console.log('Change size of this pizza!!! ' + size.name);
     this.pizza.size = size;
   }
 

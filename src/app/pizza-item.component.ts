@@ -23,7 +23,6 @@ export class PizzaItemComponent implements OnInit {
   }
 
   sizeChanged(size: PizzaSize): void {
-    console.log('Pizza heard size changed');
     this.pizza.size = size;
   }
 }
