@@ -10,16 +10,38 @@ import { PizzaSize } from './pizza-size';
 })
 export class PizzaSizeComponent implements OnInit {
 
-  @Input() pizza: Pizza;
+  private _pizza: Pizza;
   @Output() sizeChange: EventEmitter<PizzaSize> = new EventEmitter<PizzaSize>();
   sizes: PizzaSize[];
+  prices: number[];
   selectedSize: PizzaSize;
 
-  constructor(public menuService: MenuService) {}
+  @Input() set pizza(pizza: Pizza) {
+    console.log('Pizza set!!!!');
+    this._pizza = pizza;
+    this._pizza.toppingsChanged.subscribe(() => {
+      this.updateSizePrices();
+    });
+  }
+
+  get pizza(): Pizza {
+    return this._pizza;
+  }
+
+  constructor(public menuService: MenuService) { }
 
   ngOnInit(): void {
-    this.sizes = this.menuService.getAvailableSizes(this.pizza);
+    this.updateSizePrices();
     this.selectedSize = this.menuService.defaultSize;
+  }
+
+  updateSizePrices(): void {
+    const pizza = this._pizza.clone();
+    this.sizes = this.menuService.getAvailableSizes(pizza);
+    this.prices = this.sizes.map((size: PizzaSize) => {
+      pizza.size = size;
+      return this.menuService.getPrice(pizza);
+    });
   }
 
   onSizeChange(pizzaSizeID: string): void {

@@ -1,5 +1,5 @@
 <div class="cart-item">
-  <h3>{{pizza.name}} - {{pizza.price | currency:'GBP':'symbol' }}</h3>
+  <h3>{{pizza.name}} - {{pizza.size.name}} - {{pizza.price | currency:'GBP':'symbol' }}</h3>
   <!-- <app-size [pizza]=pizza></app-size> -->
   <app-pizza-size [pizza]=pizza (sizeChange)="sizeChanged($event)"></app-pizza-size>
   <app-topping-list [toppings]=pizza.toppings></app-topping-list>

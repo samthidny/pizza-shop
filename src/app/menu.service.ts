@@ -48,14 +48,14 @@ export class MenuService {
 
   getToppingPrice(pizza: Pizza, topping: Topping): number {
     // Check Pizza size and calculate topping price
-    return pizza.size.id + 0.5;
+    return 1; // pizza.size.id + 0.5;
   }
 
   getBasePrice(pizza: Pizza): number {
     switch (pizza.size.name) {
       case 'small' : return 5;
-      case 'medium' : return 7.50;
-      case 'large' : return 10;
+      case 'medium' : return 6;
+      case 'large' : return 7;
     }
 
     throw new Error('Pizza size not found');
