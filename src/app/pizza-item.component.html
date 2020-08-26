@@ -1,6 +1,7 @@
 <div class="item-main">
   <div class="item-description">
-    <h3>{{pizza.name}} - {{pizza.size.name}} - {{pizza.price | currency:'GBP':'symbol'}}</h3>
+    <h3>{{pizza.name}}</h3>
+     <h4>{{pizza.size.name | size}} - {{pizza.price | currency:'GBP':'symbol'}}</h4>
     <app-topping-list [toppings]=pizza.toppings></app-topping-list>
   </div>
   <div class="item-image">

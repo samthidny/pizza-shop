@@ -3,8 +3,6 @@ import { Pizza } from './pizza';
 import { Topping } from './topping';
 import { ToppingsService } from './toppings.service';
 import { PizzaSize } from './pizza-size';
-import { CartService } from './cart.service';
-import { PizzaSizeComponent } from './pizza-size.component';
 import { PizzaOption } from './pizza-option';
 
 @Injectable({
