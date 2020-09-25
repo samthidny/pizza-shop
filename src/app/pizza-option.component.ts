@@ -45,7 +45,6 @@ export class PizzaOptionComponent implements OnInit {
     this.selectedOption = this.options.find((option: PizzaOption) => {
       return option === pizza[option.option];
     });
-
   }
 
   onOptionChange(pizzaOptionID: string): void {

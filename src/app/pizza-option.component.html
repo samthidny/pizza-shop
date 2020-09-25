@@ -1,3 +1,10 @@
-<select (change)="onOptionChange($event.target.value)">
+<!-- <select (change)="onOptionChange($event.target.value)">
   <option *ngFor="let option of options; index as i" [value]="option.id" [selected]="option.id === pizza[option.option].id">{{option.name}} - {{prices[i] | currency:'GBP':'symbol'}}</option>
-</select>
+</select> -->
+
+<div *ngFor="let option of options; index as i">
+  <!-- <span>{{option.id}} === {{pizza.id}}</span> -->
+  <input type="radio" [value]="option.id" [id]="pizza.id + 'option' + i" (click)="onOptionChange($event.target.value)" [checked]="option.id === pizza[option.option].id ? true : false" [name]="pizza.id">
+  <label [for]="pizza.id + 'option' + i">{{option.name}} - {{prices[i] | currency:'GBP':'symbol'}}</label>
+  <!-- <p>{{pizza.id + 'option' + i}}</p> -->
+</div>
