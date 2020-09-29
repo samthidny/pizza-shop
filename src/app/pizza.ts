@@ -27,6 +27,7 @@ export class Pizza {
 
   public static create(name: string, toppings: Topping[], size: PizzaSize): Pizza {
     const pizza = new Pizza();
+    pizza.id = Math.round(Math.random() * 99999999);
     pizza.name = name;
     pizza.toppings = toppings;
     pizza.size = size;
