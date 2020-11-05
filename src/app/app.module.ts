@@ -14,6 +14,7 @@ import { CustomiseComponent } from './customise.component';
 import { ToppingListComponent } from './topping-list.component';
 import { PizzaOptionComponent } from './pizza-option.component';
 import { SizePipe } from './size.pipe';
+import { CustomiseMenuItemComponent } from './pages/customise-menu-item.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SizePipe } from './size.pipe';
     CustomiseComponent,
     ToppingListComponent,
     PizzaOptionComponent,
-    SizePipe
+    SizePipe,
+    CustomiseMenuItemComponent
   ],
   imports: [
     BrowserModule,

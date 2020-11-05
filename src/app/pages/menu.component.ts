@@ -37,4 +37,8 @@ export class MenuComponent implements OnInit {
     this.cartService.addItem(pizza);
   }
 
+  customiseItem(pizza: Pizza): void {
+    console.log('customise menu item, before adding to cart ' + pizza.name);
+  }
+
 }

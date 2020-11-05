@@ -10,5 +10,6 @@
 </div>
 <div class="item-footer">
   <app-pizza-option option="size" [pizza]="pizza" (optionChange)="sizeChanged($event)"></app-pizza-option>
+  <button (click)="customiseItem()">Customise</button>
   <button (click)="addItem()">Add</button>
 </div>

@@ -12,6 +12,7 @@ export class PizzaItemComponent implements OnInit {
   @Input() pizza: Pizza;
 
   @Output() onAddItem = new EventEmitter<Pizza>();
+  @Output() onCustomiseItem = new EventEmitter<Pizza>();
 
   addItem() {
     this.onAddItem.emit(this.pizza);
@@ -24,5 +25,10 @@ export class PizzaItemComponent implements OnInit {
 
   sizeChanged(size: PizzaSize): void {
     this.pizza.size = size;
+  }
+
+  customiseItem(pizza: Pizza) {
+    console.log('Pizza Item - customise Menu Item');
+    this.onCustomiseItem.emit(this.pizza);
   }
 }

@@ -11,6 +11,7 @@ export class PizzaListComponent implements OnInit {
   @Input() pizzas: [Pizza];
   
   @Output() onAddItem = new EventEmitter<Pizza>();
+  @Output() onCustomiseItem = new EventEmitter<Pizza>();
 
   constructor() { }
 
@@ -20,6 +21,11 @@ export class PizzaListComponent implements OnInit {
 
   addItem(pizza: Pizza) {
     this.onAddItem.emit(pizza);
+  }
+
+  customiseItem(pizza: Pizza) {
+    console.log('pizza list - customise Menu Item');
+    this.onCustomiseItem.emit(pizza);
   }
 
 }
