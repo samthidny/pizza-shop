@@ -56,8 +56,10 @@ export class CartService {
     this.cartUpdated$.next(this.items);
   }
 
-  getPizzaByID(index: number): Pizza {
-    return this.items[index];
+  getPizzaByID(id: number): Pizza {
+    return this.items.find((pizza) => {
+      return pizza.id === parseInt(id, 10);
+    });
   }
 
 }

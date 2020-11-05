@@ -22,10 +22,6 @@ export class CustomiseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('customise component ' + this.pizza.name);
-    // this.id = this.activatedRoute.snapshot.params['id'];
-    // this.pizza = this.cartService.items[this.id];
-    // this.pizza = this
   }
 
   toppingChanged(event: Event): void {

@@ -5,6 +5,6 @@
   <app-topping-list [toppings]=pizza.toppings></app-topping-list>
   <div class="controls">
     <button (click)="removeItem()">Remove</button>
-    <button [routerLink]="['/cart/customise/', index]">Customise</button>
+    <button [routerLink]="['/cart/customise/', pizza.id]">Customise {{pizza.id}}</button>
   </div>
 </div>
