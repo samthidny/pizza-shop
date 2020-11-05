@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pizza } from './pizza';
 import { CartService } from './cart.service';
@@ -14,7 +14,7 @@ import { PizzaSize } from './pizza-size';
 export class CustomiseComponent implements OnInit {
 
   id: number;
-  pizza: Pizza;
+  @Input() pizza: Pizza;
   toppings: Topping[];
 
   constructor(private activatedRoute: ActivatedRoute, public cartService: CartService, private toppingsService: ToppingsService) {
@@ -22,8 +22,10 @@ export class CustomiseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.params['id'];
-    this.pizza = this.cartService.items[this.id];
+    console.log('customise component ' + this.pizza.name);
+    // this.id = this.activatedRoute.snapshot.params['id'];
+    // this.pizza = this.cartService.items[this.id];
+    // this.pizza = this
   }
 
   toppingChanged(event: Event): void {
