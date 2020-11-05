@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home.component';
-import { DealsComponent } from './deals.component';
-import { MenuComponent } from './menu.component';
-import { CartComponent } from './cart.component';
+import { HomeComponent } from './pages/home.component';
+import { DealsComponent } from './pages/deals.component';
+import { MenuComponent } from './pages/menu.component';
+import { CartComponent } from './pages/cart.component';
 import { CustomiseComponent } from './customise.component';
 
 
