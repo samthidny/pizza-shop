@@ -58,7 +58,7 @@ export class CartService {
 
   getPizzaByID(id: number): Pizza {
     return this.items.find((pizza) => {
-      return pizza.id === parseInt(id, 10);
+      return pizza.id === id;
     });
   }
 

@@ -87,7 +87,7 @@ export class MenuService {
 
   getPizzaByID(id: number): Pizza {
     return this.pizzas.find((pizza) => {
-      return pizza.id === parseInt(id, 10);
+      return pizza.id === id;
     });
   }
 

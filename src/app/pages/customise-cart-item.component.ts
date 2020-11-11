@@ -12,14 +12,14 @@ import { PizzaSize } from '../pizza-size';
 })
 export class CustomiseCartItemComponent implements OnInit {
 
-  private pizza: Pizza;
+  public pizza: Pizza;
 
   constructor(private activatedRoute: ActivatedRoute, private cartService: CartService, private router: Router) {
   }
 
   ngOnInit(): void {
-    console.log('customise cart item page');
-    const id = this.activatedRoute.snapshot.params['id'];
+    const id: number = parseInt(this.activatedRoute.snapshot.params['id'], 10);
+    console.log('customise cart item page ' + id);
     this.pizza = this.cartService.getPizzaByID(id);
     if (!this.pizza) {
       console.log('No such pizza');
