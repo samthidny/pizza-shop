@@ -1,2 +1,5 @@
-<p>customise-cart-item works!</p>
+<p>Customise a pizza in your cart</p>
 <app-customise [pizza]=pizza></app-customise>
+<span>New pizza Price: {{originalPizza.price}} > {{pizza.price}}</span>
+<button (click)="updateItem()">Update Item</button>
+

@@ -62,4 +62,17 @@ export class CartService {
     });
   }
 
+  // Used to compae your total cart price by changing an item, This is in Cart in case deals make a difference
+  getReplacementPrice(originalPizza: Pizza, replacementPizza: Pizza): number {
+    // copy items array and get new price
+    const newPizza: Pizza = originalPizza.clone();
+    // debugger;
+    const newPrice: number = this.menuService.getPrice(newPizza);
+    const oldPrice: number = this.menuService.getPrice(originalPizza);
+
+    console.log('getReplavcementPrice - Price diff: ', oldPrice, newPrice);
+
+    return newPrice;
+  }
+
 }
