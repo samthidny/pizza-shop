@@ -54,7 +54,7 @@ export class CustomiseCartItemComponent implements OnInit {
     console.log('update cart item! to ' + this.pizza.price + ' from ' + this.originalPizza.price);
     this.cartService.removeItem(this.originalPizza);
     this.cartService.addItem(this.pizza);
-
+    this.router.navigateByUrl('/cart');
 
   }
 
