@@ -14,7 +14,7 @@ import { MenuService } from '../menu.service';
 export class CustomiseCartItemComponent implements OnInit {
 
   public pizza: Pizza;
-  private originalPizza: Pizza;
+  public originalPizza: Pizza;
   public customisedCartPrice: number;
 
   constructor(private activatedRoute: ActivatedRoute, private cartService: CartService, private menuService: MenuService, private router: Router) {
@@ -31,6 +31,8 @@ export class CustomiseCartItemComponent implements OnInit {
     // Clone pizza keep a reference to original so we can compare
     this.originalPizza = this.pizza;
     this.pizza = this.originalPizza.clone();
+    const customisedPrice = this.menuService.getPrice(this.pizza);
+    this.pizza.price = customisedPrice;
     this.pizza.toppingsChanged.subscribe(this.customPizzaChanged.bind(this));
   }
 
@@ -44,6 +46,15 @@ export class CustomiseCartItemComponent implements OnInit {
     pizza.price = customisedPrice;
 
     console.log('custom Pizza has been changed!!!!' + ' original price ' + originalPrice + ' new price: ' + customisedPrice);
+
+  }
+
+
+  updateItem() {
+    console.log('update cart item! to ' + this.pizza.price + ' from ' + this.originalPizza.price);
+    this.cartService.removeItem(this.originalPizza);
+    this.cartService.addItem(this.pizza);
+
 
   }
 
